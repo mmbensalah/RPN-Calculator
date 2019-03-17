@@ -1,12 +1,14 @@
 require 'pry'
 
 class Calculator
+  attr_reader :input_arr
+  
   def initialize(input_arr = [])
     @input_arr  = input_arr
   end
 
   def run(input)
-    if    quit?(input) then exit
+    if    quit?(input) then exit_calc
     elsif operator?(input) then evaluate(input)
     else  stack(input)
     end
@@ -14,6 +16,11 @@ class Calculator
 
   def quit?(input)
     input == 'q'
+  end
+
+  def exit_calc
+    puts 'goodbye'
+    exit
   end
 
   def operator?(input)
@@ -30,6 +37,7 @@ class Calculator
   def stack(input)
     @input_arr << input.to_i
   end
+
 end
 
 #Thought process after researching/understanding RPN and project requirements:
@@ -45,3 +53,4 @@ end
 #                 of every operator
 #7.Seventh step - Add q to exit
 #8. Eighth step - Refactor
+#9. Ninth step  - Test
