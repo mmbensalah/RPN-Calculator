@@ -1,9 +1,15 @@
+require 'pry'
 class Calculator
   def evaluate
     integer_array = []
     operator_array = []
     input = gets.chomp
-
+    if ["+", "-", "/", "*"].any? { |operator| input.include? operator }
+      operator = input.to_sym
+      operator_array << operator
+    else
+      integer_array << input.to_i
+    end
   end
 end
 
