@@ -7,11 +7,13 @@ class Calculator
 
   def evaluate
     input = gets.chomp
-    if ["+", "-", "/", "*"].any? { |operator| input.include? operator }
-      calculated_value = @input_arr[0].send(input.to_sym, @input_arr[1])
-      @input_arr.clear
+    if input == 'q'
+      exit
+    elsif ["+", "-", "/", "*"].any? { |operator| input.include? operator }
+      calculated_value = @input_arr[-2].send(input.to_sym, @input_arr[-1])
+      @input_arr.pop(2)
       @input_arr << calculated_value
-      puts @input_arr
+      puts "= #{@input_arr.last}"
     else
       @input_arr  << input.to_i
     end
@@ -29,3 +31,4 @@ end
 #6. Sixth step  - Need to get rid of operator_array - will not work with RPN -
 #                 instead need to execute last two digits after the introduction
 #                 of every operator
+#7.Seventh step - Add q to exit 
