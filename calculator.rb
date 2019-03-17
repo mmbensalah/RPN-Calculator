@@ -2,7 +2,6 @@ require 'pry'
 
 class Calculator
   attr_reader :input_arr
-  
   def initialize(input_arr = [])
     @input_arr  = input_arr
   end
@@ -28,10 +27,16 @@ class Calculator
   end
 
   def evaluate(input)
-    calculated_value = @input_arr[-2].send(input.to_sym, @input_arr[-1])
-    @input_arr.pop(2)
-    @input_arr << calculated_value
-    puts "= #{@input_arr.last}"
+    if full_stack?
+      calculated_value = @input_arr[-2].send(input.to_sym, @input_arr[-1])
+      @input_arr.pop(2)
+      @input_arr << calculated_value
+      puts "= #{@input_arr.last}"
+    end
+  end
+
+  def full_stack?
+    input_arr.count > 1
   end
 
   def stack(input)
@@ -54,3 +59,5 @@ end
 #7.Seventh step - Add q to exit
 #8. Eighth step - Refactor
 #9. Ninth step  - Test
+#10. Tenth step - Create method to prevent calculator from erroring out when
+#               - operator introduced and there are less than two integers
