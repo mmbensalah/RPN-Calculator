@@ -2,4 +2,7 @@ require_relative 'calculator'
 require 'pry'
 
 calc = Calculator.new
-calc.evaluate
+
+loop do
+  calc.evaluate
+end
