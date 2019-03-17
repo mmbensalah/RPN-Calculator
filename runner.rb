@@ -1,8 +1,9 @@
 require_relative 'calculator'
-require 'pry'
 
 calc = Calculator.new
+puts 'Welcome to the RPN calculator. Hit enter after every input.'
 
 loop do
-  calc.evaluate
+  input = gets.chomp
+  calc.run(input)
 end
