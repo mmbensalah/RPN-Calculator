@@ -27,4 +27,14 @@ class CalculatorTest < Minitest::Test
     cal.run("-")
     assert_equal [14], cal.input_arr
   end
+
+  def test_it_continues_after_invalid_operator_entry
+    cal = Calculator.new
+    cal.run("5")
+    cal.run("+")
+    assert_equal [5], cal.input_arr
+    cal.run("2")
+    cal.run("+")
+    assert_equal [7], cal.input_arr
+  end
 end

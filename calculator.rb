@@ -2,7 +2,6 @@ require 'pry'
 
 class Calculator
   attr_reader :input_arr
-  
   def initialize(input_arr = [])
     @input_arr  = input_arr
   end
