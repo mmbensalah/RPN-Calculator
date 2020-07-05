@@ -5,6 +5,9 @@ require 'pry'
 require_relative 'calculator'
 
 class CalculatorTest < Minitest::Test
+  def not_used
+  end
+  
   def test_it_evaluates_two_numbers
     cal = Calculator.new
     cal.run("1")
